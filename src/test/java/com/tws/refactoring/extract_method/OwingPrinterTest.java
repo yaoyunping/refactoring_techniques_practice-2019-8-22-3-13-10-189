@@ -4,8 +4,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.awt.List;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.LinkedList;
 
 import static org.junit.Assert.*;
 
@@ -25,7 +27,18 @@ public class OwingPrinterTest {
 
     @Test
     public void printOwing() {
-//        System.out.print("hello");
-//        assertEquals("hello", outContent.toString());
+    	OwingPrinter owingPrinter = new OwingPrinter();
+    	Order order1 = new Order(2);
+    	Order order2 = new Order(3);
+    	List<Order> orders = new List();
+    	orders.add(order1);
+    	orders.add(order2);
+    	
+    	
+    	double outstanding = owingPrinter.printOwing(orders);
+    	//owingPrinter.printString("order", outstanding);
+        
+        assertEquals("5", outstanding);
     }
+   
 }
